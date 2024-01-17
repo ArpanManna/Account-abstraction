@@ -33,9 +33,8 @@ async function createModule() {
 }
 
 // Function to create a Biconomy Smart Account
-async function createSmartAccount() {
+exports.createSmartAccount = async () => {
   const module = await createModule(); // Create the validation module
-
   let smartAccount = await BiconomySmartAccountV2.create({
     chainId: ChainId.POLYGON_MUMBAI, // Chain ID for the Polygon Mumbai network
     bundler: bundler, // The configured bundler instance
@@ -51,4 +50,4 @@ async function createSmartAccount() {
   return smartAccount;
 }
 
-createSmartAccount(); // Execute the function to create a smart account
+// exports = {createSmartAccount}; 
